@@ -1,0 +1,25 @@
+#######################################
+# Syntax Coloring Map For NRF905
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+NRF905	KEYWORD1
+nrf905	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+init	KEYWORD2
+write_config	KEYWORD2
+read_config	KEYWORD2
+RX	KEYWORD2
+TX	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
