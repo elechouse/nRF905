@@ -29,6 +29,16 @@ PROGMEM unsigned int freq_tab[10] = {
 //-------------------initial nRF905---------------------------------------------
 NRF905::NRF905(void)
 {
+#if 1
+    /** Adjust pin definition */
+    TXEN=5;
+    TRX_CE=6;
+    PWR=A0;
+    CSN=4;
+    AM=7;
+    DR=3;
+    CD=2;
+#else
     TXEN=5;
     TRX_CE=4;
     PWR=3;
@@ -36,9 +46,20 @@ NRF905::NRF905(void)
     AM=9;
     DR=8;
     CD=7;
+#endif
 }
 NRF905::NRF905(int css)
 {
+#if 1
+    /** Adjust pin definition */
+    TXEN=5;
+    TRX_CE=6;
+    PWR=A0;
+    CSN=css;
+    AM=7;
+    DR=3;
+    CD=2;
+#else
     TXEN=5;
     TRX_CE=4;
     PWR=3;
@@ -46,6 +67,7 @@ NRF905::NRF905(int css)
     AM=9;
     DR=8;
     CD=7;
+#endif
 }
 
 void NRF905::init(void)

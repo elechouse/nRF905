@@ -1,12 +1,12 @@
 /**
-  @brief 
+  @brief nRF905 RX Demo, by elechouse.
 */
 #include <NRF905.h>
 #include <SPI.h>
 #define BUF_LEN          32
 #define CONF_LEN         10
 
-//NRF905 nrf905;
+#define NRF905_CSN       4
 
 unsigned char write_config_buf[CONF_LEN]={
     0x76,                   //CH_NO,868.4MHZ
@@ -31,8 +31,10 @@ void putstring(unsigned char *str)
 void setup()
 {
     char i;
-    pinMode(10,OUTPUT);
-    nrf905=NRF905(10);
+    
+    pinMode(10, OUTPUT);        // make sure SPI works
+    pinMode(NRF905_CSN,OUTPUT);
+    nrf905=NRF905(NRF905_CSN);
     
     /** pin/port configuration */
     nrf905.init();

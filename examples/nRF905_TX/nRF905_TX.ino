@@ -1,10 +1,14 @@
+/**
+  @brief nRF905 TX Demo, by elechouse.
+*/
+
 #include <NRF905.h>
 #include <SPI.h>
 
 #define BUF_LEN          32
 #define CONF_LEN         10
 
-#define NRF905_CSN       10
+#define NRF905_CSN       4
 
 unsigned char tx_buf[BUF_LEN]= "Hi, Arduino   \r\n";
 unsigned char read_config_buf[CONF_LEN];
@@ -15,8 +19,8 @@ void setup()
 {
     unsigned char i;
     
-    pinMode(NRF905_CSN,OUTPUT); //to make sure SPI works
-    
+    pinMode(10, OUTPUT);        // make sure SPI works
+    pinMode(NRF905_CSN,OUTPUT); 
     nrf905=NRF905(NRF905_CSN);
     
     nrf905.init();
@@ -64,9 +68,9 @@ void loop()
     
     /** Count Sending times */
     tx_buf[12]++;
-    if(tx_buf[12] == 0x3A){
+    if(tx_buf[12] > '9'){
       tx_buf[12] = '0';
     }
-    delay(50);
+    delay(500);
 }
 
